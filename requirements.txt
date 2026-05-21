@@ -1,0 +1,7 @@
+cedar-solve==0.5.1
+numpy==2.4.4
+packaging==26.2
+pillow==11.3.0
+scipy==1.17.1
+setuptools==82.0.1
+wheel==0.47.0
