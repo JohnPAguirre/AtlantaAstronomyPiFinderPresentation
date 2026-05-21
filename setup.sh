@@ -13,7 +13,25 @@ fi
 
 source "$VENV_DIR/bin/activate"
 pip install --upgrade pip
+# cedar-solve 0.5.1 declares Pillow<9 and numpy<2, but those constraints predate
+# Python 3.12 and GCC 14. Install it without deps so modern versions can be used.
+pip install --no-deps cedar-solve==0.5.1
 pip install -r requirements.txt
+
+# Patch tetra3-gen-db: argparser is missing --pattern-stars-per-fov that the code references
+GENDB="$VENV_DIR/lib64/python3.12/site-packages/tetra3/cli/generate_database.py"
+python3 - "$GENDB" <<'PYEOF'
+import sys
+path = sys.argv[1]
+content = open(path).read()
+if 'pattern_stars_per_fov=args.pattern_stars_per_fov' in content and \
+   '--pattern-stars-per-fov' not in content:
+    insert = ('    parser.add_argument("--pattern-stars-per-fov", type=int, default=None,\n'
+              '                        help="Target number of stars used for generating patterns.")\n')
+    content = content.replace('    args = parser.parse_args()', insert + '    args = parser.parse_args()')
+    open(path, 'w').write(content)
+    print("Patched tetra3-gen-db: added missing --pattern-stars-per-fov argument")
+PYEOF
 
 echo ""
 echo "Setup complete. Activate with: source $VENV_DIR/bin/activate"
