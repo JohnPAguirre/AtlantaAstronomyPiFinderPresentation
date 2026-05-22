@@ -109,10 +109,10 @@ For every `.fits` file in `centroidParameterTesting/`, sweeps all combinations o
 **Output per target (`centroidParameterTesting/<stem>/`):**
 
 - One annotated PNG per parameter combination, organised into `<bg_mode>__<sigma_mode>/` subfolders
-- `<stem>.gif` â€” all frames assembled into a single animated GIF
-- `<stem>_shrunk.gif` â€” gifsicle-compressed copy (created by the script if `gifsicle` is on `$PATH`)
+- `<stem>.gif` — all frames assembled into a single animated GIF
+- `<stem>_shrunk.gif` — gifsicle-compressed copy (created by the script if `gifsicle` is on `$PATH`)
 
-**Adding a new target:** drop a `.fits` and a matching `.png` or `.jpg` with the same stem into `centroidParameterTesting/`. The script auto-discovers all pairs â€” no configuration needed. If no draw file is found the script generates the canvas from the FITS image itself using an STF stretch.
+**Adding a new target:** drop a `.fits` and a matching `.png` or `.jpg` with the same stem into `centroidParameterTesting/`. The script auto-discovers all pairs — no configuration needed. If no draw file is found the script generates the canvas from the FITS image itself using an STF stretch.
 
 **Compressing the output GIF manually:**
 
@@ -143,10 +143,10 @@ Each build can take several minutes and produce hundreds of MB on disk.
 
 | Version | FOV range | Magnitude | Size | Solve rate | Notes |
 |---------|-----------|-----------|------|------------|-------|
-| V6 | 1.0Â°â€“2.0Â° multiscale | auto | â€” | â€” | First db to solve 1.553Â° rig FOV |
-| V7 | 2.0Â°â€“4.0Â° multiscale | auto | â€” | â€” | For 2.724Â° rig; wrong range for 1.553Â° |
-| V8 | 1.5Â°â€“4.0Â° multiscale | auto | 926 MB | 6/6 | Original production database |
-| V9 | 1.55Â° single-scale | mag 11 | 518 MB | 6/6 | **Recommended** â€” same rate as V8 at 44% the size |
-| V10 | 10Â° single-scale | Hipparcos | â€” | â€” | Wide-field / finder-scope FOV |
+| V6 | 1.0°–2.0° multiscale | auto | — | — | First db to solve 1.553° rig FOV |
+| V7 | 2.0°–4.0° multiscale | auto | — | — | For 2.724° rig; wrong range for 1.553° |
+| V8 | 1.5°–4.0° multiscale | auto | 926 MB | 6/6 | Original production database |
+| V9 | 1.55° single-scale | mag 11 | 518 MB | 6/6 | **Recommended** — same rate as V8 at 44% the size |
+| V10 | 10° single-scale | Hipparcos | — | — | Wide-field / finder-scope FOV |
 
-> Magnitude limit is the dominant factor: mag 8 â†’ 3/6 solves, mag 9â€“10 â†’ 5/6, mag 11 â†’ 6/6. Single-scale beats multiscale at the same magnitude.
+> Magnitude limit is the dominant factor: mag 8 → 3/6 solves, mag 9–10 → 5/6, mag 11 → 6/6. Single-scale beats multiscale at the same magnitude.

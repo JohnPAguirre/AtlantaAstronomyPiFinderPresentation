@@ -30,7 +30,7 @@ centroidParameterTesting/
   M57.png
 ```
 
-The script auto-discovers all pairs on each run â€” no configuration needed.
+The script auto-discovers all pairs on each run — no configuration needed.
 
 If no matching draw file is found, the script automatically generates the canvas by applying an STF stretch to the FITS image itself.
 
@@ -45,7 +45,7 @@ python centroidParameterTesting/review_centroids.py
 
 ## Compressing the output GIF
 
-The raw GIFs can be large. Use `gifsicle` to compress â€” make a copy first:
+The raw GIFs can be large. Use `gifsicle` to compress — make a copy first:
 
 ```bash
 cp centroidParameterTesting/<target>/<target>.gif centroidParameterTesting/<target>/<target>_shrunk.gif
@@ -66,9 +66,9 @@ pip install -r requirements.txt
 
 Installs `cedar-solve` (tetra3 API), `Pillow`, `numpy`, and `scipy`.
 
-> **Note:** `image_utils.py` is sourced from `../scripts/` at runtime â€” the script adds that path automatically, no manual step needed.
+> **Note:** `image_utils.py` is sourced from `../scripts/` at runtime — the script adds that path automatically, no manual step needed.
 
-### gifsicle â€” GIF compression
+### gifsicle — GIF compression
 
 Used separately after the script runs to compress output GIFs.
 
